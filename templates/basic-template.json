@@ -1,0 +1,100 @@
+{
+  "website": {
+    "businessName": "text",
+    "pages": [
+      {
+        "pageName": "landing",
+        "blocks": [
+          {
+            "name": "hero",
+            "content": [
+              {
+                "block": [
+                  {
+                    "value": "title",
+                    "prompt": "Generate a title about the business idea: {{businessIdea}} "
+                  },
+                  {
+                    "value": "subtitle",
+                    "prompt": "Generate a subtitle about the business idea: {{businessIdea}} "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "features",
+            "content": [
+              {
+                "block": [
+                  {
+                    "value": "title",
+                    "prompt": "Generate a another one feature title about the business idea: {{businessIdea}} "
+                  },
+                  {
+                    "value": "description",
+                    "prompt": "Generate a short description about the generated feature: {{feature}} "
+                  }
+                ]
+              },
+              {
+                "block": [
+                  {
+                    "value": "title",
+                    "prompt": "Generate a another one feature title about the business idea: {{businessIdea}} "
+                  },
+                  {
+                    "value": "description",
+                    "prompt": "Generate a short description about the generated feature: {{feature}} "
+                  }
+                ]
+              },
+              {
+                "block": [
+                  {
+                    "value": "title",
+                    "prompt": "Generate a another one feature title about the business idea: {{businessIdea}} "
+                  },
+                  {
+                    "value": "description",
+                    "prompt": "Generate a short description about the generated feature: {{feature}} "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "testimony",
+            "content": [
+              {
+                "block": [
+                  {
+                    "value": "testimony",
+                    "prompt": "Generate one testimony about the business idea: {{businessIdea}}"
+                  },
+                  {
+                    "value": "username",
+                    "prompt": "Generate a random person name"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "CTA",
+            "content": [
+              {
+                "block": [
+                  {
+                    "value": "CTA",
+                    "prompt": "Generate a short call to action title about the business idea: {{businessIdea}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
