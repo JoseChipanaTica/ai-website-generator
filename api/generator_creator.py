@@ -1,5 +1,7 @@
 import os
 import json
+import uuid
+from api.redis_db import RedisDB
 
 from langchain.llms import AI21
 
@@ -7,7 +9,7 @@ from core.models.website import Website, WebsiteDataBlock, \
     WebsiteContentBlock, WebsiteBlock, WebsitePage
 
 
-def generate_website(idea) -> dict:
+def generate_website(idea) -> [str, dict]:
     website = Website()
 
     llm = AI21(model='j2-jumbo-instruct', maxTokens=152, temperature=0.9)
@@ -63,4 +65,8 @@ def generate_website(idea) -> dict:
             website_page.insert_block(website_block)
         website.insert_page(website_page)
 
-    return website.__dict__
+    website_dict = website.to_dict()
+    _id = str(uuid.uuid4())
+    RedisDB().redis_db.set(_id, str(website_dict))
+
+    return _id, website_dict

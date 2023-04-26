@@ -1,9 +1,10 @@
-import json
 from fastapi import FastAPI, Request
 from dotenv import load_dotenv
 from api.generator_creator import generate_website
+from api.redis_db import RedisDB
 
 load_dotenv('.env')
+RedisDB().start_db()
 
 app = FastAPI()
 
