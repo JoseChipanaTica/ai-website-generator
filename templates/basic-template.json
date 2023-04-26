@@ -29,7 +29,7 @@
                 "block": [
                   {
                     "value": "title",
-                    "prompt": "Generate a another one feature title about the business idea: {{businessIdea}} "
+                    "prompt": "Create a captivating and succint feature title for a {{businessIdea}}. Consider the target audience, industry, and unique offerings. Be creative and concise. Provide a single feature title as output. "
                   },
                   {
                     "value": "description",
@@ -41,7 +41,7 @@
                 "block": [
                   {
                     "value": "title",
-                    "prompt": "Generate a another one feature title about the business idea: {{businessIdea}} "
+                    "prompt": "Create a captivating and succint feature title for a {{businessIdea}} that is different from this {{previousFeature}}. Consider the target audience, industry, and unique offerings. Be creative and concise. Provide a single feature title as output. "
                   },
                   {
                     "value": "description",
@@ -53,7 +53,7 @@
                 "block": [
                   {
                     "value": "title",
-                    "prompt": "Generate a another one feature title about the business idea: {{businessIdea}} "
+                    "prompt": "Create a different captivating and succint feature title for a {{businessIdea}} that is different from this {{previousFeature}}. Consider the target audience, industry, and unique offerings. Be creative and concise. Provide a single feature title as output. "
                   },
                   {
                     "value": "description",
@@ -70,11 +70,11 @@
                 "block": [
                   {
                     "value": "testimony",
-                    "prompt": "Generate one testimony about the business idea: {{businessIdea}}"
+                    "prompt": "Generate one testimony about the business idea: {{businessIdea}}, without placeholders"
                   },
                   {
                     "value": "username",
-                    "prompt": "Generate a random person name"
+                    "prompt": "a generate a name, just the name, no other word"
                   }
                 ]
               }

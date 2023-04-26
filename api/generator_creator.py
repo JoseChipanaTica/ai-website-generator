@@ -10,7 +10,7 @@ from core.models.website import Website, WebsiteDataBlock, \
 def generate_website(idea) -> dict:
     website = Website()
 
-    llm = AI21(model='j2-grande-instruct', temperature=0.9)
+    llm = AI21(model='j2-jumbo-instruct', maxTokens=152, temperature=0.9)
 
     path = os.getcwd()
 
@@ -42,12 +42,21 @@ def generate_website(idea) -> dict:
                     prompt: str = data['prompt']
                     kind = data['value']
 
-                    prompt = prompt.replace('{{businessIdea}}', idea)
+                    if '{{businessIdea}}' in prompt:
+                            prompt = prompt.replace('{{businessIdea}}', idea)
+                        
+                    if '{{feature}}' in prompt:
+                        prompt = prompt.replace('{{feature}}', previousValue)
+
+                    if '{{previousFeature}}' in prompt:
+                         prompt = prompt.replace('{{previousFeature}}', previousValue)
 
                     result = llm.generate([prompt])
                     value = result.generations[0][0].text
+                    value = value.replace('\n', '').replace('\"', '')
 
                     web_block = WebsiteDataBlock(kind, value)
+                    previousValue = web_block.value
                     website_block_content.insert_data_block(web_block)
 
                 website_block.insert_content(website_block_content)
