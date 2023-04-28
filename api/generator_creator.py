@@ -45,13 +45,13 @@ def generate_website(idea) -> [str, dict]:
                     kind = data['value']
 
                     if '{{businessIdea}}' in prompt:
-                            prompt = prompt.replace('{{businessIdea}}', idea)
-                        
+                        prompt = prompt.replace('{{businessIdea}}', idea)
+
                     if '{{feature}}' in prompt:
                         prompt = prompt.replace('{{feature}}', previousValue)
 
                     if '{{previousFeature}}' in prompt:
-                         prompt = prompt.replace('{{previousFeature}}', previousValue)
+                        prompt = prompt.replace('{{previousFeature}}', previousValue)
 
                     result = llm.generate([prompt])
                     value = result.generations[0][0].text
@@ -70,3 +70,7 @@ def generate_website(idea) -> [str, dict]:
     RedisDB().redis_db.set(_id, str(website_dict))
 
     return _id, website_dict
+
+
+def get_template(_id):
+    return json.loads(RedisDB().redis_db.get(_id))
