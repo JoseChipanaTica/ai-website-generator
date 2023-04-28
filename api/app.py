@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Body
 from dotenv import load_dotenv
 from api.generator_creator import generate_website, get_template
 from api.redis_db import RedisDB
@@ -9,11 +9,12 @@ RedisDB().start_db()
 app = FastAPI()
 
 
-@app.get("/")
-def read_root(user_prompt):
-    res = generate_website(user_prompt)    
+@app.post("/")
+def read_root(payload: dict = Body(...)):
+    user_prompt = payload['user_prompt']
+    _id, template = generate_website(user_prompt)
 
-    return {"template": res}
+    return {"_id": _id, "template": template}
 
 
 @app.get("/{_id}")
