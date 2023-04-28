@@ -8,8 +8,8 @@ class WebsiteDataBlock:
 
     def to_dict(self):
         return {
-            'kind': self.kind,
-            'value': self.value
+            "kind": self.kind,
+            "value": self.value
         }
 
 
@@ -26,7 +26,7 @@ class WebsiteContentBlock:
 
     def to_dict(self):
         return {
-            'block': [i.to_dict() for i in self.block]
+            "block": [i.to_dict() for i in self.block]
         }
 
 
@@ -44,8 +44,8 @@ class WebsiteBlock:
 
     def to_dict(self):
         return {
-            'name': self.name,
-            'content': [i.to_dict() for i in self.content]
+            "name": self.name,
+            "content": [i.to_dict() for i in self.content]
         }
 
 
@@ -63,8 +63,8 @@ class WebsitePage:
 
     def to_dict(self):
         return {
-            'page_name': self.page_name,
-            'blocks': [i.to_dict() for i in self.blocks]
+            "page_name": self.page_name,
+            "blocks": [i.to_dict() for i in self.blocks]
         }
 
 
